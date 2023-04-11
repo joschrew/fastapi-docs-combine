@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  docs:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      - "COMBINE_URLS=http://172.17.0.1:8081/openapi.json http://172.17.01:8082/openapi.json"
+      - "COMBINE_IGNORE=/something"
+      - "COMBINE_TITLE=My custom name"
