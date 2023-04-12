@@ -33,6 +33,10 @@ async def connect_docs():
 @app.get("/combined_docs")
 async def custom_swagger_ui_html():
     """Taken from here: https://fastapi.tiangolo.com/advanced/extending-openapi/
+
+    Usually with /docs you get `get_swagger_ui_html` with /openapi.json. This is changed to not use
+    /openapi.json any more but /customdocs. With /customdocs the openapi.json of multiple services
+    is merged into one json and then displayed
     """
     return get_swagger_ui_html(
         openapi_url="/customdocs",
